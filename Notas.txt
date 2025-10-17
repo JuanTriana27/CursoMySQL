@@ -1,0 +1,60 @@
+ 	
+1. Conceptos Básicos de SQL
+
+SQL significa
+Lenguaje estructurado de consultas
+Structured Query Languaje
+
+¿Qué es SQL?
+Básicamente son estructuras de datos que están organizado y a los que se puede acceder mediante consultas. Sirve para comunicarse con una base de datos.
+
+Ejemplo consulta básica
+SELECT titulo FROM Libros WHERE genero = 'Historia';
+
+¿Qué son los bases de datos?
+Lugar digital donde guardamos datos de forma estructurada para acceder a los datos mediante consultas, esto permite almacenar, gestionar y muchísimas mas cosas.
+
+Bases de Datos Relacionales
+Se organizan en tablas y se relacionan entre si, por ejemplo clientes y pedidos son dos tablas que se relacionan
+
+Bases de Datos no SQL o no Relacionales
+Bases menos estructuradas y que almacenan datos de forma masiva, por ejemplo un almacén que tienen muchos tipos de artículos.
+
+Componentes de una base de datos
+Tablas - Bibliotecas donde se guardan los datos de una clase por ejemplo
+Filas y Columnas - Las filas representan registros por ejemplo varios nombre, las columnas son atributos que tiene una clase por ejemplo cliente tiene nombre, apellido entre otros.
+Claves Primarias - Son datos únicos que se le dan a cada uno de los registros, por ejemplo id_cliente.
+
+Sistemas de gestión
+DBMS software intermediario entre db y usuarios. por ejemplo MySQL, Oracle.
+
+¿Qué es MySQL?
+Sistema de db relacional y uno de los mas utilizados en todo el mundo por su eficiencia y escalabilidad.
+Es de fácil acceso y libre de instalar
+Es popular entre la comunidad debido a su largo uso a lo largo de los años
+Su compatibilidad, debido a sus años esta disponible para los diferentes sistemas operativos
+fundamentos transferibles, se pueden transferir a otros sistemas de gestión de bases de datos.
+
+Proyecto 1
+Base de datos con 3 tablas. tema libre
+InmobiliriaDB
+Propiedad
+id_propiedad
+direccion
+ciudad
+codigo_postal
+
+Cliente
+id_cliente
+nombre
+apellido
+edad
+correo
+fk_id_propiedad
+
+Tipo Propiedad
+id_tipo_propiedad
+tipo_inmueble
+fk_id_propiedad
+
+

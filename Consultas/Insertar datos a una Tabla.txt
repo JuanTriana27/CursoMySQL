@@ -1,0 +1,2 @@
+INSERT INTO usuarios (Nombre, Email, FechaRegistro) 
+VALUES ('Juan', 'trianajuan28@gmail.com', '2002-05-01');

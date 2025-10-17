@@ -1,0 +1,11 @@
+ALTER TABLE `blogdb`.`comentarios` 
+CHANGE COLUMN `idPublicacion` `idPublicacion` INT NULL DEFAULT NULL ,
+CHANGE COLUMN `idUsuario` `idUsuario` INT NULL DEFAULT NULL ,
+ADD INDEX `idUsuario_idx` (`idUsuario` ASC) VISIBLE;
+;
+ALTER TABLE `blogdb`.`comentarios` 
+ADD CONSTRAINT `idUsuario`
+  FOREIGN KEY (`idUsuario`)
+  REFERENCES `blogdb`.`usuarios` (`idUsuario`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;

@@ -1,0 +1,6 @@
+CREATE TABLE `blogdb`.`usuarios` (
+  `idUsuarios` INT NOT NULL AUTO_INCREMENT,
+  `Nombre` VARCHAR(45) NULL,
+  `Email` VARCHAR(45) NULL,
+  `FechaRegistro` DATE NULL,
+  PRIMARY KEY (`idUsuarios`));

@@ -1,0 +1,6 @@
+= igualdad
+<> desigualdad
+< menor
+> mayor
+<= menor igual
+=> mayor igual
