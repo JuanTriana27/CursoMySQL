@@ -1,0 +1,47 @@
+-- Pasar a Mayuscula
+SELECT
+    UPPER(series.titulo)
+FROM series;
+
+-- Pasar a Minuscula
+SELECT
+    LOWER(series.titulo)
+FROM series;
+
+-- Concatenar
+SELECT
+    CONCAT(titulo, ' (', año_lanzamiento, ')') AS 'Titulo Completo'
+FROM
+    series;
+
+-- SubString
+SELECT
+    SUBSTRING(titulo, 1, 3) AS 'Titulo Inicial'
+FROM
+    series;
+
+-- Lenght
+SELECT
+    titulo, LENGTH(series.titulo) AS 'Titulo Lenght'
+FROM
+    series;
+
+-- Left y Right
+SELECT
+    titulo,
+    LEFT(series.titulo, 3) AS 'Titulo Inicial',
+    RIGHT(series.titulo, 3) AS 'Titulo Final'
+FROM
+    series;
+
+-- EJERCICIO1
+SELECT
+    UPPER(titulo) AS 'titulo_mayusculas'
+FROM
+    series;
+
+-- EJERCICIO2
+SELECT
+    SUBSTR(titulo, 1, 5) AS primeros_cinco_caracteres
+FROM
+    episodios;

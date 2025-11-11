@@ -1,0 +1,11 @@
+-- Titulos que contengan THE en su titulo
+SELECT * FROM series
+WHERE titulo LIKE '%THE%';
+
+-- Titulos que no contengan THE en su titulo
+SELECT * FROM series
+WHERE titulo NOT LIKE '%THE%';
+
+-- Practica
+SELECT titulo FROM series
+WHERE titulo LIKE '%THE%'

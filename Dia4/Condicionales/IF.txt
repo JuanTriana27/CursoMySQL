@@ -1,0 +1,14 @@
+-- Rating alto o bajo segun la condicion
+SELECT
+    titulo,
+    rating_imdb,
+    IF(rating_imdb >= 9, 'Alto', 'Bajo') AS 'Rating'
+FROM
+    episodios
+
+-- Edad de los actores
+SELECT
+    nombre,
+    IF(YEAR(actores.fecha_nacimiento)>2000, 'Joven', 'Adulto') AS 'Edad'
+FROM
+    actores

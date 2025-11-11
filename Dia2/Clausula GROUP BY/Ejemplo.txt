@@ -1,0 +1,16 @@
+-- Se debe agregar GROUP BY para agrupar los resultados por id
+SELECT serie_id, AVG(duracion) AS PromDura, SUM(duracion) AS Suma FROM episodios
+WHERE serie_id IN (1,2)
+GROUP BY serie_id;
+
+-- Obtener serie id de la tabla episodios y su cantidad de episodios a
+SELECT serie_id, COUNT(episodio_id) AS 'Episodios' 
+FROM episodios GROUP BY 1;
+
+-- Obtener valor maximo de duracion de cada una de las series
+SELECT serie_id, MAX(duracion) AS 'Duracion Max'
+FROM episodios GROUP BY 1;
+
+-- Practica
+SELECT año_lanzamiento, COUNT(serie_id) AS 'cantidad_de_series'
+FROM series GROUP BY 1;

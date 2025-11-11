@@ -1,0 +1,14 @@
+USE netflixdb;
+
+-- Titulo, duracion, rating de episodios cuya duracion sea mayor
+-- a 45 min y su rating sea mayor igual a 9 ordenas en forma descendente
+SELECT titulo, duracion, rating_imdb FROM episodios
+WHERE duracion > 45 AND rating_imdb >= 9 ORDER BY rating_imdb DESC;
+
+-- Comedia y Animacion
+SELECT * FROM series 
+WHERE genero = 'Comedia' OR genero = 'Animacion';
+
+-- Generos que no sean comedia
+SELECT * FROM series
+WHERE genero <> 'Comedia';

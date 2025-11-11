@@ -1,0 +1,29 @@
+-- Suma total de datos de un columna de la tabla ****** y titulo a la columna
+SELECT SUM(duracion) AS 'Duracion T' FROM episodios; 
+
+-- Suma total de datos de un solo dato de la tabla ****** y titulo a la columna
+SELECT SUM(duracion) AS 'Duracion T' FROM episodios 
+WHERE serie_id = 2;
+
+-- Cantidad de filas de la tabla
+SELECT COUNT(*) FROM episodios;
+
+-- Cantidad de episodios de la serie 2
+SELECT COUNT(*) FROM episodios
+WHERE serie_id = 2;
+
+-- Obtener valor maximo de una columa
+SELECT MAX(duracion) FROM episodios
+WHERE serie_id = 2;
+
+-- Obtener valor minimo de una columa
+SELECT MIN(duracion) FROM episodios
+WHERE serie_id = 2;
+
+-- Promedio de una columna
+SELECT AVG(duracion) FROM episodios
+WHERE serie_id IN (1,2);
+
+-- Practica
+SELECT SUM(duracion) FROM episodios
+

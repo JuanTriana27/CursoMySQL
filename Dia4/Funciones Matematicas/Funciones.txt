@@ -1,0 +1,28 @@
+-- Duracion de cada episodio en horas
+SELECT
+    titulo, duracion/60.0 AS Horas_Completa,
+    ROUND(duracion/60.0, 0) AS Horas_Completas_Redondeado
+FROM
+    episodios;
+
+-- Redondear hacia arriba
+SELECT
+    titulo,
+    duracion AS Duracion,
+    CEILING(duracion/60.0) AS Horas_Completas
+FROM
+    episodios;
+
+-- Redondear hacia abajo
+SELECT
+    titulo,
+    duracion AS Duracion,
+    FLOOR(duracion/60.0) AS Horas_Completas
+FROM
+    episodios;
+
+-- EJERCICIO1
+SELECT
+    CEILING(rating_imdb) AS rating_redondeado
+FROM
+    episodios;

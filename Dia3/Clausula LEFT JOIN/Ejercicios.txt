@@ -1,0 +1,42 @@
+-- Obtener lista de todas las series y un episodio ademas mostrar series sin episodios tmb asociado
+SELECT
+    t0.titulo AS Titulo_Serie,
+    t1.titulo AS Titulo_Episodio
+FROM
+    series t0
+LEFT JOIN
+    episodios t1
+ON
+    t0.serie_id = t1.serie_id
+ORDER BY
+    t0.titulo;
+
+-- EJERCICIO 1
+SELECT
+    T0.titulo AS 'Título de la Serie',
+    T1.titulo AS 'Título del Episodio',
+    T1.rating_imdb AS 'Rating IMDB'
+FROM
+    series T0
+LEFT JOIN
+    episodios T1
+ON
+    T0.serie_id = T1.serie_id
+ORDER BY
+    T0.titulo;
+
+-- EJERCICIO 2
+SELECT
+    T0.titulo AS 'Título de la Serie',
+    T1.titulo AS 'Título del Episodio',
+    T1.rating_imdb AS 'Rating IMDB'
+FROM
+    series T0
+LEFT JOIN
+    episodios T1
+ON
+    T0.serie_id = T1.serie_id
+WHERE
+    T0.titulo = 'Stranger Things'
+ORDER BY
+    T1.rating_imdb DESC;

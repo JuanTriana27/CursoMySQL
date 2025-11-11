@@ -1,0 +1,29 @@
+-- Subconsultas (Consultas dentro de consultas)
+-- Obtener episodios de the office
+SELECT
+    
+FROM
+    episodios
+WHERE
+    serie_id = (SELECT
+                    serie_id
+                FROM
+                    series
+                WHERE
+                    titulo = 'Breaking Bad');
+-- Ejercicio
+SELECT
+    titulo
+FROM
+    Series
+WHERE
+    serie_id IN (
+        SELECT
+            serie_id
+        FROM
+            Episodios
+        GROUP BY
+            serie_id
+        HAVING
+            AVG(rating_imdb)  8
+    );

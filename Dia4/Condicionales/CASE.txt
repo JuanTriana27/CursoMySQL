@@ -1,0 +1,33 @@
+-- Clasificar series de netflix segun año de lanzamiento sea nuevas, clasicas o antiguas
+-- usando case
+SELECT
+    titulo AS Serie,
+    año_lanzamiento AS Lanzamiento,
+    CASE
+        WHEN año_lanzamiento >= 2020 THEN 'Nueva'
+        WHEN año_lanzamiento BETWEEN 2010 AND 2019 THEN 'Clasica'
+        ELSE 'Antigua'
+    END AS Categoria
+FROM
+    series;
+
+-- EJERCICIO1
+SELECT
+    titulo,
+    CASE
+        WHEN series.año_lanzamiento < 2010 THEN 'Antigua'
+        WHEN series.año_lanzamiento >= 2010 THEN 'Reciente'
+    END AS 'Antigüedad'
+FROM
+    series;
+
+-- EJERCICIO2
+SELECT
+    titulo,
+    CASE
+        WHEN genero = 'Drama' THEN 'Dramático'
+        WHEN genero = 'Comedia' THEN 'Divertido'
+        ELSE 'Otro'
+    END AS 'Categoría de Género'
+FROM
+    series;

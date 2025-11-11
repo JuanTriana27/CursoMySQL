@@ -1,0 +1,15 @@
+-- ¿Cuál es el episodio mas largo?
+SELECT episodio_id, MAX(duracion) AS 'Duracion'
+FROM episodios
+GROUP BY 1 ORDER BY 2 DESC LIMIT 1;
+
+-- ¿Cuál es la serie con mejor rating promedio de imbd?
+SELECT serie_id, MAX(rating_imdb) AS 'Rating'
+FROM episodios GROUP BY 1 ORDER BY 2 DESC LIMIT 1;
+
+-- ¿Quién es el actor o actriz que ha participado en la mayor cantidad de series?
+SELECT actor_id, COUNT(DISTINCT serie_id) AS total_series
+FROM actuaciones
+GROUP BY actor_id
+ORDER BY total_series DESC
+LIMIT 1;

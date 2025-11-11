@@ -1,0 +1,28 @@
+-- Verificar que las series tengan almenos 1 episodio
+SELECT
+    T0.titulo AS titulos_serie,
+    T1.titulo AS titulos_episodio
+FROM
+    episodios AS T1
+RIGHT JOIN
+    series AS T0
+ON
+    T1.serie_id = T0.serie_id
+ORDER BY
+    T0.titulo;
+
+-- EJERCICIO1
+SELECT
+    T0.titulo AS 'Título de la Serie',
+    T1.titulo AS 'Título del Episodio',
+    T1.duracion AS 'Duración'
+FROM
+    episodios AS T1
+RIGHT JOIN
+    series AS T0
+ON
+    T1.serie_id = T0.serie_id
+WHERE
+    T1.duracion > 30
+ORDER BY
+    T0.titulo;

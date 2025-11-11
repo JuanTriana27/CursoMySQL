@@ -1,0 +1,11 @@
+-- Episodios por nombre de serie
+SELECT
+    t0.episodio_id,
+    t0.serie_id,
+    t1.titulo AS 'Nombre de la serie'
+FROM
+    Episodios t0
+JOIN
+    series t1 ON t0.serie_id = t1.serie_id
+WHERE
+    t1.titulo = 'Game of Thrones'

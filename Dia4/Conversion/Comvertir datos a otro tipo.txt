@@ -1,0 +1,16 @@
+-- Tipo de dato de las columnas de una tabla
+DESCRIBE episodios;
+
+-- Seleccionar todos los episodios donde la fecha de estreno sea mayor a 2010-01-01
+SELECT
+    *
+FROM
+    episodios
+WHERE
+    CAST(fecha_estreno AS DATE) > '2010-01-01';
+
+-- EJERCICIO
+SELECT
+    titulo,
+    CAST(año_lanzamiento AS TEXT) AS 'Año de Lanzamiento'
+FROM Series

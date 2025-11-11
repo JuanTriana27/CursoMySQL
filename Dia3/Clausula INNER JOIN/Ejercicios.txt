@@ -1,0 +1,45 @@
+-- Todas las columnas de las tablas
+SELECT
+    *
+FROM
+    series
+INNER JOIN
+    actuaciones
+ON
+    series.serie_id = actuaciones.serie_id
+
+-- Solo Columnas especificas
+SELECT
+    t0.titulo,
+    t1.personaje
+FROM
+    series AS t0
+INNER JOIN
+        actuaciones AS t1 ON t0.serie_id = t1.serie_id
+WHERE
+    t0.serie_id = 2
+
+-- Ejercicio 1: Todas las columnas relacionadas con serie id
+SELECT
+    *
+FROM
+    series
+INNER JOIN
+    episodios
+ON
+    series.serie_id = episodios.serie_id
+LIMIT 10;
+ 
+-- Ejercicio 2: Titulos de series y episodios de stranger things
+SELECT
+    t0.titulo AS titulo_serie,
+    t1.titulo AS titulo_episodio,
+    t1.duracion AS duracion
+FROM
+    series AS t0
+INNER JOIN
+        episodios AS t1
+ON
+    t0.serie_id = t1.serie_id
+WHERE
+    t0.titulo = 'Stranger Things'

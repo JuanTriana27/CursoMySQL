@@ -1,0 +1,13 @@
+-- Serie con mas de 11 capitulos, el having permite ser utilizado despues del
+-- group by. solo se usa sobre funciones de agregacion
+SELECT serie_id, COUNT(episodio_id) AS numero_episodios
+FROM episodios
+GROUP BY serie_id
+HAVING COUNT(episodio_id)>11;
+
+-- Agrupar por temporada y duracion total
+SELECT temporada AS temporada, SUM(duracion) AS duracion_total
+FROM episodios
+WHERE serie_id = 2
+GROUP BY temporada
+HAVING SUM(duracion) > 400;

@@ -1,0 +1,7 @@
+-- Series que no pertenecen a comedia
+SELECT * FROM series
+WHERE genero NOT IN ('Comedia');
+
+-- Series que son solo de comedia
+SELECT * FROM series
+WHERE genero IN ('Comedia', 'Drama');

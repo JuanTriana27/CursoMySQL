@@ -1,0 +1,49 @@
+-- Ejercicio 1
+-- Subconsulta que identifica los 3 generos mas populares
+-- en funcion de la cantidad de series
+SELECT
+    genero
+FROM
+    series
+WHERE
+    genero IN (
+        SELECT
+            genero
+        FROM
+            series
+        GROUP BY
+            genero
+        ORDER BY
+            COUNT(serie_id) DESC
+    )
+LIMIT 3;
+
+-- Ejercicio 2
+-- Para cada uno de esos generos identificar el nombre de la serie,
+-- año de lanzamiento y rating imdb, iniciando una subconsulta que
+-- seleccione los generos y cuente la cantidad de series en cada uno.
+-- Ordenar los resultados por cantidad de serie de manera desc
+-- y limitar a 3
+-- En la consulta principal filtrar las series que correspondan a dichos
+-- genero utilizando IN, se puede unir la tabla series con episodios para
+-- obtener el rating imdb promedio
+SELECT
+    T0.titulo AS 'Titulo de la serie',
+    T0.año_lanzamiento AS 'Año de lanzamiento',
+    T0.genero AS 'Genero',
+    AVG(T1.rating_imdb) AS 'Rating_Promedio'
+FROM
+    series T0
+JOIN
+    episodios T1 ON T0.serie_id = T1.serie_id
+WHERE
+    T0.genero IN (SELECT genero FROM(
+        SELECT genero, COUNT(*) AS Cantidad_Series
+        FROM series
+        GROUP BY genero
+        ORDER BY Cantidad_Series DESC
+        LIMIT 3) AS top3)
+    GROUP BY
+        T0.serie_id
+    ORDER BY
+        'Rating_Promedio' DESC;

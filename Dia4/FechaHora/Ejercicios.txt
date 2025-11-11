@@ -1,0 +1,21 @@
+-- Obtener año de las fechas de estreno
+SELECT
+    episodios.fecha_estreno AS Episodios,
+    YEAR(episodios.fecha_estreno) AS Año,
+    MONTH(episodios.fecha_estreno) AS Mes
+FROM
+    episodios;
+
+-- Agregar unidades a una fecha
+SELECT
+    episodios.fecha_estreno,
+    DATE_ADD(episodios.fecha_estreno, INTERVAL 12 DAY)
+FROM
+    episodios;
+
+-- Diferencia entre fecha de estreno
+SELECT
+    *,
+    DATEDIFF(CURDATE(), fecha_estreno) AS 'Dias Desde Estreno'
+FROM
+    episodios;

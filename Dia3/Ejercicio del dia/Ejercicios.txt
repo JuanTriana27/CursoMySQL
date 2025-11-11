@@ -1,0 +1,41 @@
+-- Ejercicios del dia
+
+-- 1. Lista de los diferentes generos junto
+-- a la cantidad de series de cada uno de ellos
+SELECT
+    T0.genero AS Genero,
+    COUNT(T0.serie_id) AS Cantidad
+FROM
+    series AS T0
+GROUP BY
+    T0.genero
+ORDER BY
+    Cantidad DESC;
+
+-- 2. Series con Mayor rating imdb y episodios
+-- por cada una
+SELECT
+    T0.titulo AS Serie,
+    AVG(T1.rating_imdb) AS Rating_imdb,
+    COUNT(T1.serie_id) AS Cantidad_Episodios
+FROM
+    series AS T0
+INNER JOIN
+    episodios AS T1 ON T0.serie_id = T1.serie_id
+GROUP BY
+    T0.titulo
+ORDER BY
+    Rating_imdb DESC
+LIMIT 3;
+
+-- 3. Duracion total de todos los episodios de
+-- Stranger Things
+SELECT
+    T0.titulo AS Serie,
+    SUM(T1.duracion) AS Duracion
+FROM
+    series AS T0
+INNER JOIN
+    episodios AS T1 ON T0.serie_id = T1.serie_id
+WHERE
+    T0.titulo = 'Stranger Things';

@@ -1,0 +1,27 @@
+-- Informe que liste todas las series de drama y de ciencia ficcion
+SELECT
+    titulo, genero
+FROM
+    series
+WHERE
+    genero = 'Drama'
+
+UNION
+
+SELECT
+    titulo, genero
+FROM
+    series
+WHERE
+    genero = 'Ciencia Ficción'
+
+-- Ejercicio
+SELECT titulo
+FROM episodios
+WHERE duracion > 20
+
+UNION
+
+SELECT titulo
+FROM episodios
+WHERE rating_imdb >9
