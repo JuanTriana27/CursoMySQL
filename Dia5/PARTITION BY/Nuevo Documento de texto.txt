@@ -1,0 +1,29 @@
+-- Permite dividir resultados en particiones
+-- Cada año tiene su propio ranking, segun su orden
+SELECT
+    titulo ,
+    genero ,
+    año_lanzamiento ,
+    ROW_NUMBER() OVER (PARTITION BY genero ORDER BY año_lanzamiento DESC) AS ranking_por_genero
+FROM series
+
+-- Consulta sql que selecciona titulo, fecha estreno utilizando row number
+-- y partition by
+SELECT
+    temporada ,
+    titulo ,
+    fecha_estreno ,
+    ROW_NUMBER() OVER (PARTITION BY temporada ORDER BY fecha_estreno DESC) AS ranking_temporada
+FROM episodios;
+
+-- Consulta SQL que genera un ranking de episodios para cada temporada
+-- de Stranger Things serie_id = 2 basandose en las calificaciones de
+-- IMDB, esto para identificar los episodios mejor valorados de cada
+-- temporada.
+SELECT
+    temporada ,
+    titulo ,
+    rating_imdb ,
+    ROW_NUMBER() OVER (PARTITION BY temporada ORDER BY rating_imdb DESC) AS 'Ranking IMDb'
+FROM episodios
+WHERE serie_id = 2

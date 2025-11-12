@@ -1,0 +1,4 @@
+Que son?
+Bloques de código SQL que se guardan en la db para ejecutarlos cuando sea necesario, esto permite encapsular código para ser consultado posteriormente.
+
+

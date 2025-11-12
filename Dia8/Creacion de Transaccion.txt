@@ -1,0 +1,12 @@
+-- Transaction
+BEGIN;
+
+-- Punto de Guardado
+SAVEPOINT PreValidacion;
+
+-- Inserciones
+INSERT INTO AsignacionesDeProyectos (proyecto_id, empleado_id, horas_asignadas) VALUES (5, 1, 10);
+INSERT INTO AsignacionesDeProyectos (proyecto_id, empleado_id, horas_asignadas) VALUES (5, 1, 15);
+
+-- Volver al punto de guardado
+ROLLBACK TO PreValidacion;

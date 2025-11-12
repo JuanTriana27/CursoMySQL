@@ -1,0 +1,61 @@
+Diagrama Entidad Relación
+Sirven para visualizar la estructura de la base de datos.
+Sirven para ver como se relacionan las tablas de la db.
+
+Que es una entidad
+Una entidad simplemente es una tabla, como por ejemplo la tabla peliculas, o series o episodios,
+se representan dentro de un rectángulo dentro de ellas existen atributos.
+Por ejemplo la entidad empleados,
+contiene los siguientes atributos
+
+IdEmpleado
+Nombre
+FechaContratacion
+IdDepartamento
+
+Ahora la tabla departamento
+IdDepartamento
+Nombre
+
+Claves Primarias - Claves Foraneas
+
+Claves Primarias:
+Identificadores únicos que contiene cada tabla, ningún otro registro puede tener el valor de esta columna.
+
+Clave Foranea:
+Son campos en una tabla que se relaciona con la clave primaria de otra tabla, por ejemplo una tabla departamento y otra empleado, en departamento el iddepartamento es la pk y la empleado se relaciona con ese departamento con iddepartamento
+
+actividad
+CREATE DATABASE IF NOT EXISTS bibliotecadb;
+USE bibliotecadb;
+
+CREATE TABLE autores (
+    id_autor INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    nacionalidad VARCHAR(100)
+);
+
+CREATE TABLE libros (
+    id_libro INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(150) NOT NULL,
+    año_lanzamiento YEAR,
+    id_autor INT NOT NULL,
+    FOREIGN KEY (id_autor) REFERENCES autores(id_autor)
+);
+
+CREATE TABLE lectores (
+    id_lector INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    apellido VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE prestamos (
+    id_prestamo INT AUTO_INCREMENT PRIMARY KEY,
+    id_libro INT NOT NULL,
+    id_lector INT NOT NULL,
+    fecha_prestamo DATE NOT NULL,
+    fecha_entrega DATE,
+    precio DECIMAL(10,2),
+    FOREIGN KEY (id_libro) REFERENCES libros(id_libro),
+    FOREIGN KEY (id_lector) REFERENCES lectores(id_lector)
+);

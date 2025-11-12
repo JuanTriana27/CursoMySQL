@@ -1,0 +1,56 @@
+-- Lista de episodios
+WITH ListaEpisodios AS (
+    SELECT
+        serie_id,
+        episodio_id,
+        titulo
+    FROM episodios
+),
+
+-- Lista de Series
+ListaSeries AS(
+    SELECT
+        serie_id,
+        descripcion
+    FROM series
+)
+
+-- JOIN Para las dos CTES
+SELECT * FROM ListaEpisodios
+LEFT JOIN ListaSeries
+ON ListaEpisodios.serie_id = ListaSeries.serie_id;
+
+-- Determinar la fecha de estreno del primer episodio de cada serie MIN(fecha_estreno) para obtener la fecha más antigua de episodio desde la tabla Episodios para dicha Serie
+WITH PrimeroEpisodio AS (
+    SELECT
+        serie_id,
+        MIN(fecha_estreno) AS fecha_primer_episodio
+    FROM episodios
+    GROUP BY serie_id
+)
+
+SELECT
+    titulo AS "Título de la Serie",
+    fecha_primer_episodio AS "Fecha del Primer Episodio"
+FROM series
+INNER JOIN PrimeroEpisodio
+ON series.serie_id = PrimeroEpisodio.serie_id
+ORDER BY fecha_primer_episodio ASC;
+
+-- Consulta CTE que seleccione el total de series lanzadas
+-- por año para un genero especifico, Ciencia Ficcion, ordenar
+-- resultados por año de lanzamiento
+WITH SeriesLanzadas AS (
+    SELECT
+        año_lanzamiento,
+        COUNT(*) AS total_series
+    FROM series
+    WHERE genero = 'Ciencia ficción'
+    GROUP BY año_lanzamiento
+)
+
+SELECT
+    año_lanzamiento,
+    total_series
+FROM SeriesLanzadas
+ORDER BY año_lanzamiento;

@@ -1,0 +1,14 @@
+SELECT
+    titulo ,
+    rating_imdb ,
+    RANK() OVER(ORDER BY rating_imdb DESC) AS ranking
+FROM episodios
+
+-- Consulta que asigne un rango a cada episodio donde,
+-- cada episodio con la misma calificacion tiene el mismo rango
+-- se ordena del mas alto al mas bajo segun la calificacion
+SELECT
+    titulo ,
+    rating_imdb ,
+    RANK() OVER(ORDER BY rating_imdb DESC) AS ranking_imdb
+FROM episodios

@@ -1,0 +1,13 @@
+SELECT
+    titulo ,
+    rating_imdb ,
+    DENSE_RANK() OVER (ORDER BY rating_imdb DESC) AS ranking
+FROM episodios;
+
+-- Consulta SQL que use DENSERANK para clasificar los episodios
+-- por su duracion utilizando episodios
+SELECT
+    titulo ,
+    duracion ,
+    DENSE_RANK() OVER (ORDER BY duracion DESC) AS ranking_por_duracion
+FROM episodios;

@@ -1,0 +1,14 @@
+1. Comandos DDL
+Definen el esquema de la base de datos.
+
+2. Comandos DML
+Se utilizan para insertar, actualizar y eliminar datos.
+
+3. Comandos DQL
+Consultar datos de una base de datos.
+
+4. Comandos DCL
+Otorgar permisos y remover permisos a los usuarios.
+
+5. Comandos TCL
+Se usan para gestionar transacciones.

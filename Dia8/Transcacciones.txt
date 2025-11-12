@@ -1,0 +1,15 @@
+Qué son?
+Son secuencias de operaciones realizadas en una unidad única de tabajo, si se tiene éxito en la transacion toda modificación de datos se confirma, si encuentra errores y debe cancelarse o revertirse se borran las modificaciones de los datos.
+
+CONCEPTO ACID
+- atomicidad
+- coherencia
+- aislamiento
+- durabilidad
+
+Comandos
+- BEGIN TRANSACTION - Ejecutar varias operaciones, si algo sale mas todo se arregla con rollback-
+
+- ROLLBACK - Revertir errores
+
+- COMMIT - Enviar
