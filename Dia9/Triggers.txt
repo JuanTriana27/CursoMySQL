@@ -1,0 +1,2 @@
+Que son?
+Son acciones automáticas que se ejecutan en respuesta a cambios especifios.

@@ -1,0 +1,14 @@
+-- CREAMOS LA VISTA
+CREATE VIEW VistaEmpleadosProyectos AS
+
+-- Consulta para la vista
+SELECT
+    T0.nombre,
+    T0.apellido,
+    T1.proyecto_id,
+    T2.descripcion
+FROM empleados T0
+INNER JOIN asignacionesdeproyectos AS T1
+ON T0.empleado_id = T1.empleado_id
+INNER JOIN proyectos AS T2
+ON T1.proyecto_id = T2.proyecto_id

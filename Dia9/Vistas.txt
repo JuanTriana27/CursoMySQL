@@ -1,0 +1,5 @@
+Que son?
+Simplifica como trabajamos con las db, es una consulta que guarda el contenido de una tabla, consta de columnas y filas de datos con un nombre, esta se actualiza automáticamente. Simplifican consultas complejas, mejoran la seguridad, ayuda en la consistencia de las tablas.
+
+Vistas materializadas
+Almacenan los resultados de la consulta localmente en el disco

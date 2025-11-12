@@ -1,0 +1,10 @@
+WITH HorasEmpleado AS (
+  SELECT empleado_id, SUM(horas_asignadas) AS total_horas
+  FROM AsignacionesDeProyectos
+  GROUP BY empleado_id
+)
+
+SELECT T1.nombre, T1.apellido, T2.total_horas
+FROM Empleados T1
+JOIN HorasEmpleado T2 ON T1.empleado_id = T2.empleado_id
+ORDER BY T2.total_horas DESC;

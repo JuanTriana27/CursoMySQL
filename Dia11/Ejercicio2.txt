@@ -1,0 +1,9 @@
+SELECT
+    T0.nombre AS 'Nombre Departamento',
+    SUM(T2.horas_asignadas) AS 'Total Horas Asignadas'
+FROM departamentos T0
+INNER JOIN empleados T1 ON T0.depto_id = T1.depto_id
+INNER JOIN asignacionesdeproyectos T2 ON T1.empleado_id = T2.empleado_id
+GROUP BY T0.nombre
+ORDER BY SUM(T2.horas_asignadas) DESC
+

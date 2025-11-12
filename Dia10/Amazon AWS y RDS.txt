@@ -1,0 +1,2 @@
+Amazon AWS y Amazon RDS
+Son instancias o configuraciones de ambiente de db en la nube que RDS administra y almacena automáticamente, se debe acceder a la consola de administración de aws

@@ -1,0 +1,10 @@
+SELECT
+    T0.nombre AS 'Nombre Empleado',
+    T0.apellido AS 'Apellido Empleado',
+    T2.nombre AS 'Nombre Proyecto',
+    T1.horas_asignadas AS 'Horas Asignadas'
+
+FROM empleados T0
+INNER JOIN asignacionesdeproyectos AS T1 ON T0.empleado_id = T1.empleado_id
+INNER JOIN proyectos AS T2 ON T1.proyecto_id = T2.proyecto_id
+ORDER BY T0.nombre, T0.apellido, T1.horas_asignadas DESC;

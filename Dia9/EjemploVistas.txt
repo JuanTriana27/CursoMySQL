@@ -1,0 +1,12 @@
+-- CREAMOS LA VISTA
+CREATE VIEW VistaEmpleadosTecnologia AS
+SELECT nombre, apellido, email
+FROM Empleados
+WHERE depto_id = 1;
+
+-- VISTA MATERIALIZADA
+CREATE MATERIALIZED VIEW VistaEmpleadosTecnologia AS
+SELECT empleados.nombre, proyectos.nombre AS proyecto
+FROM empleados
+JOIN asignacionesdeproyectos ON empleados.empleado_id = asignacionesdeproyectos.empleado_id
+JOIN proyectos ON asignacionesdeproyectos.proyecto_id = proyectos.proyecto_id;
